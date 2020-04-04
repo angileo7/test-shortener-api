@@ -3,7 +3,7 @@ version: '3.4'
 services:
   app: 
     build:
-      context: .
+      context: ./api_service
       dockerfile: Dockerfile
     depends_on:     
       - database
