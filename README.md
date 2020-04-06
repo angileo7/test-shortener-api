@@ -1,6 +1,6 @@
 # test-shortener-api
 How to Install
-https://github.com/angileo7/test-shortener-api.git
+git clone https://github.com/angileo7/test-shortener-api.git
 
 cd test-shortener-api
 
