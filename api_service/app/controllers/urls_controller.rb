@@ -40,7 +40,7 @@ class UrlsController < ApplicationController
       @url.visit_count += 1
       @url.save
     end
-    
+
     def shorten(original_url)
       validated_url = handle_prefix(original_url)
       'test.angel/'.concat(encode(validated_url))
@@ -55,6 +55,6 @@ class UrlsController < ApplicationController
     end
 
     def encode(link)
-      Base64.encode64(link)[0..5]
+      Base64.encode64(link)[-9..-2]
     end
 end

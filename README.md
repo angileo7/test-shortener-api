@@ -20,7 +20,7 @@ docker-compose​​ ​​exec​​ app ​​rails​​ ​db:migrate
 docker-compose​​ ​​exec​​ app ​​rails​​ ​db:seed
 
 Explanation how about hte algoritm works.
-When a new URL comes, the string is enconded with a base64 in order to be hashed, then the result is stored inside the database alongside the original url.
+When a new URL comes, the string is enconded with a base64 in order to be hashed then taking the las seven characters of the encoded string, then the result is stored inside the database alongside the original url.
 
 For example: www.verylooooooooooooooooooooooooooooooong-url.mx/sfknsñldkfnsadjknsajkcjksbdasderercssdfgsd
 then the url is enconded : 'test.angel/shorturl'
