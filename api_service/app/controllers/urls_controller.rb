@@ -9,11 +9,9 @@ class UrlsController < ApplicationController
     render json: @urls
   end
 
-  # POST 
+  # POST /navigate
   def navigate
-    binding.pry
-    @url.visit_count += 1
-    @url.save
+    update_counter
     render json: @url
   end
 
@@ -30,17 +28,19 @@ class UrlsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_url
-      binding.pry
       @url = Url.find_by!('short_url': params[:data][:short_url])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def url_params
-      params.require(:data).permit(:original_url)
+      params.require(:data).permit(:original_url, :title)
     end
 
+    def update_counter
+      @url.visit_count += 1
+      @url.save
+    end
+    
     def shorten(original_url)
       validated_url = handle_prefix(original_url)
       'test.angel/'.concat(encode(validated_url))
